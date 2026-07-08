@@ -1,114 +1,104 @@
 
-let images=[];
+body{
 
-let currentIndex=0;
+    font-family: Arial;
+    background:#f2f2f2;
+    text-align:center;
+
+}
 
 
+h1{
 
-window.onload=function(){
+    margin:30px;
+    color:#333;
 
-images=[
-...document.querySelectorAll(".card img")
-];
+}
+
+
+.buttons button{
+
+    padding:12px 20px;
+    margin:10px;
+    border:none;
+    background:#333;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+
+}
+
+
+.gallery{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:30px;
+
+}
+
+
+.gallery img{
+
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.4s;
+
+}
+
+
+.gallery img:hover{
+
+    transform:scale(1.08);
+    box-shadow:0px 10px 20px gray;
 
 }
 
 
 
+#lightbox{
 
-function filterImages(category){
-
-let cards=document.querySelectorAll(".card");
-
-
-cards.forEach(card=>{
-
-
-if(category=="all" || card.classList.contains(category))
-
-{
-
-card.style.display="block";
-
-}
-
-else
-
-{
-
-card.style.display="none";
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
 
 }
 
 
-});
+#lightbox img{
 
-
-}
-
-
-
-
-function openLightbox(img){
-
-document.getElementById("lightbox").style.display="flex";
-
-
-currentIndex=
-images.indexOf(img);
-
-
-showImage();
+    width:70%;
+    max-height:80%;
 
 }
 
 
+#lightbox span{
 
-function showImage(){
-
-document.getElementById("largeImage")
-.src=images[currentIndex].src;
-
-}
-
-
-
-
-function closeLightbox(){
-
-document.getElementById("lightbox")
-.style.display="none";
+    position:absolute;
+    right:30px;
+    top:20px;
+    color:white;
+    font-size:40px;
+    cursor:pointer;
 
 }
 
 
+#lightbox button{
 
-
-function nextImage(){
-
-currentIndex++;
-
-if(currentIndex>=images.length)
-
-currentIndex=0;
-
-
-showImage();
-
-}
-
-
-
-
-function previousImage(){
-
-currentIndex--;
-
-if(currentIndex<0)
-
-currentIndex=images.length-1;
-
-
-showImage();
+    margin:20px;
+    padding:15px;
+    font-size:20px;
 
 }
