@@ -1,104 +1,97 @@
 
-body{
+let images = [
 
-    font-family: Arial;
-    background:#f2f2f2;
-    text-align:center;
+"mountain.jpg",
+"beach.jpg",
+"forest.jpg",
+"waterfall.jpg",
+"desert.jpg",
+"city.jpg",
+"river.jpg",
+"lake.jpg",
+"flower.jpg",
+"butterfly.jpg",
+"elephant.jpg",
+"tiger.jpg",
+"bird.jpg",
+"ocean.jpg",
+"sunset.jpg",
+"snow.jpg",
+"space.jpg",
+"galaxy.jpg",
+"castle.jpg",
+"bridge.jpg"
 
-}
-
-
-h1{
-
-    margin:30px;
-    color:#333;
-
-}
-
-
-.buttons button{
-
-    padding:12px 20px;
-    margin:10px;
-    border:none;
-    background:#333;
-    color:white;
-    cursor:pointer;
-    border-radius:5px;
-
-}
+];
 
 
-.gallery{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:30px;
-
-}
+let current = 0;
 
 
-.gallery img{
+function openLightbox(index){
 
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.4s;
+    current=index;
 
-}
+    document.getElementById("lightbox").style.display="flex";
 
-
-.gallery img:hover{
-
-    transform:scale(1.08);
-    box-shadow:0px 10px 20px gray;
+    document.getElementById("lightbox-img").src =
+    "images/"+images[current];
 
 }
 
 
 
-#lightbox{
+function closeLightbox(){
 
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
-    justify-content:center;
-    align-items:center;
+    document.getElementById("lightbox").style.display="none";
 
 }
 
 
-#lightbox img{
 
-    width:70%;
-    max-height:80%;
+function next(){
 
-}
+    current++;
 
+    if(current>=images.length)
+        current=0;
 
-#lightbox span{
-
-    position:absolute;
-    right:30px;
-    top:20px;
-    color:white;
-    font-size:40px;
-    cursor:pointer;
+    document.getElementById("lightbox-img").src =
+    "images/"+images[current];
 
 }
 
 
-#lightbox button{
 
-    margin:20px;
-    padding:15px;
-    font-size:20px;
+function previous(){
+
+    current--;
+
+    if(current<0)
+        current=images.length-1;
+
+    document.getElementById("lightbox-img").src =
+    "images/"+images[current];
+
+}
+
+
+
+function filterImages(category){
+
+let all=document.querySelectorAll(".gallery img");
+
+
+all.forEach(img=>{
+
+    if(category=="all" || img.dataset.category==category)
+
+        img.style.display="block";
+
+    else
+
+        img.style.display="none";
+
+});
 
 }
