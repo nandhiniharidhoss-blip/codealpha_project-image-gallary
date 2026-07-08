@@ -1,107 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DreamScape Image Gallery</title>
+    <title>Nature Image Gallery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>✨ DreamScape Gallery ✨</h1>
-    <p>Explore the beauty of nature through images</p>
-</header>
-
+<h1>Beautiful Image Gallery</h1>
 
 <div class="buttons">
     <button onclick="filterImages('all')">All</button>
     <button onclick="filterImages('nature')">Nature</button>
     <button onclick="filterImages('animals')">Animals</button>
-    <button onclick="filterImages('city')">City</button>
+    <button onclick="filterImages('world')">World</button>
 </div>
 
 
-<section class="gallery">
+<div class="gallery">
 
+    <img src="images/mountain.jpg" data-category="nature" onclick="openLightbox(0)" alt="Mountain">
+    <img src="images/beach.jpg" data-category="nature" onclick="openLightbox(1)" alt="Beach">
+    <img src="images/forest.jpg" data-category="nature" onclick="openLightbox(2)" alt="Forest">
+    <img src="images/waterfall.jpg" data-category="nature" onclick="openLightbox(3)" alt="Waterfall">
+    <img src="images/desert.jpg" data-category="nature" onclick="openLightbox(4)" alt="Desert">
 
-<div class="card nature">
-<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
-onclick="openLightbox(this)">
-<h3>Mountain View</h3>
+    <img src="images/city.jpg" data-category="world" onclick="openLightbox(5)" alt="City">
+    <img src="images/river.jpg" data-category="nature" onclick="openLightbox(6)" alt="River">
+    <img src="images/lake.jpg" data-category="nature" onclick="openLightbox(7)" alt="Lake">
+
+    <img src="images/flower.jpg" data-category="nature" onclick="openLightbox(8)" alt="Flower">
+    <img src="images/butterfly.jpg" data-category="animals" onclick="openLightbox(9)" alt="Butterfly">
+
+    <img src="images/elephant.jpg" data-category="animals" onclick="openLightbox(10)" alt="Elephant">
+    <img src="images/tiger.jpg" data-category="animals" onclick="openLightbox(11)" alt="Tiger">
+    <img src="images/bird.jpg" data-category="animals" onclick="openLightbox(12)" alt="Bird">
+
+    <img src="images/ocean.jpg" data-category="nature" onclick="openLightbox(13)" alt="Ocean">
+    <img src="images/sunset.jpg" data-category="world" onclick="openLightbox(14)" alt="Sunset">
+
+    <img src="images/snow.jpg" data-category="nature" onclick="openLightbox(15)" alt="Snow">
+    <img src="images/space.jpg" data-category="world" onclick="openLightbox(16)" alt="Space">
+
+    <img src="images/galaxy.jpg" data-category="world" onclick="openLightbox(17)" alt="Galaxy">
+    <img src="images/castle.jpg" data-category="world" onclick="openLightbox(18)" alt="Castle">
+
+    <img src="images/bridge.jpg" data-category="world" onclick="openLightbox(19)" alt="Bridge">
+
 </div>
 
-
-<div class="card nature">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-onclick="openLightbox(this)">
-<h3>Forest Beauty</h3>
-</div>
-
-
-<div class="card nature">
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e"
-onclick="openLightbox(this)">
-<h3>Green Valley</h3>
-</div>
-
-
-<div class="card animals">
-<img src="https://images.unsplash.com/photo-1549366021-9f761d450615"
-onclick="openLightbox(this)">
-<h3>Wild Elephant</h3>
-</div>
-
-
-<div class="card animals">
-<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a"
-onclick="openLightbox(this)">
-<h3>Cute Dog</h3>
-</div>
-
-
-<div class="card animals">
-<img src="C:\Users\Admin\Downloads\wild tiger.jpg"
-onclick="openLightbox(this)">
-<h3>Wild Tiger</h3>
-</div>
-
-
-<div class="card city">
-<img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df"
-onclick="openLightbox(this)">
-<h3>City Lights</h3>
-</div>
-
-
-<div class="card city">
-<img src="https://images.unsplash.com/photo-1444723121867-7a241cacace9"
-onclick="openLightbox(this)">
-<h3>Modern City</h3>
-</div>
-
-
-<div class="card city">
-<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390"
-onclick="openLightbox(this)">
-<h3>Night City</h3>
-</div>
-
-
-</section>
-
-
-
-<!-- Lightbox -->
 
 <div id="lightbox">
 
-<span onclick="closeLightbox()">×</span>
+    <span onclick="closeLightbox()">×</span>
 
-<button onclick="previousImage()">❮</button>
+    <img id="lightbox-img">
 
-<img id="largeImage">
-
-<button onclick="nextImage()">❯</button>
+    <button onclick="previous()">❮</button>
+    <button onclick="next()">❯</button>
 
 </div>
 
