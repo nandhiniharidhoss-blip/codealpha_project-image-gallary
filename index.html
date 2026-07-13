@@ -1,77 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Nature Image Gallery</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Image Gallery</title>
 
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
 <body>
 
-<h1>Beautiful Image Gallery</h1>
+<header>
+<h1>Responsive Image Gallery</h1>
+<p>HTML • CSS • JavaScript</p>
+</header>
 
 <div class="buttons">
-    <button onclick="filterImages('all')">All</button>
-    <button onclick="filterImages('nature')">Nature</button>
-    <button onclick="filterImages('animals')">Animals</button>
-    <button onclick="filterImages('world')">World</button>
+<button class="active" onclick="filterSelection('all')">All</button>
+<button onclick="filterSelection('nature')">Nature</button>
+<button onclick="filterSelection('animals')">Animals</button>
+<button onclick="filterSelection('city')">City</button>
 </div>
-
 
 <div class="gallery">
 
-<img src="C:\Users\Admin\Desktop\images\mountain.jpg" alt="Mountain">
+<div class="image nature">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600" onclick="openLightbox(0)">
+</div>
 
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beach">
+<div class="image animals">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600" onclick="openLightbox(1)">
+</div>
 
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" alt="Forest">
+<div class="image city">
+<img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600" onclick="openLightbox(2)">
+</div>
 
-<img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9" alt="Waterfall">
+<div class="image nature">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" onclick="openLightbox(3)">
+</div>
 
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429" alt="Desert">
+<div class="image animals">
+<img src="https://images.unsplash.com/photo-1501706362039-c6e80948d5f3?w=600" onclick="openLightbox(4)">
+</div>
 
-<img src="https://images.unsplash.com/photo-1444723121867-7a241cacace9" alt="City">
+<div class="image city">
+<img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600" onclick="openLightbox(5)">
+</div>
 
-<img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716" alt="River">
+<div class="image nature">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600" onclick="openLightbox(6)">
+</div>
 
-<img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000" alt="Lake">
+<div class="image animals">
+<img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=600" onclick="openLightbox(7)">
+</div>
 
-<img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e" alt="Flower">
-
-<img src="https://images.unsplash.com/photo-1504595178779-2b7d3a7c8c8c" alt="Butterfly">
-
-<img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46" alt="Elephant">
-
-<img src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5" alt="Tiger">
-
-<img src="https://images.unsplash.com/photo-1444464666168-49d633b86797" alt="Bird">
-
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Ocean">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Sunset">
-
-<img src="https://images.unsplash.com/photo-1517825738774-7de9363ef735" alt="Snow">
-
-<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa" alt="Space">
-
-<img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564" alt="Galaxy">
-
-<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23" alt="Castle">
-
-<img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f" alt="Bridge">
+<div class="image city">
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?w=600" onclick="openLightbox(8)">
+</div>
 
 </div>
 
 <div id="lightbox">
 
-    <span onclick="closeLightbox()">×</span>
+<span class="close" onclick="closeLightbox()">&times;</span>
 
-    <img id="lightbox-img">
+<span class="prev" onclick="changeImage(-1)">&#10094;</span>
 
-    <button onclick="previous()">❮</button>
-    <button onclick="next()">❯</button>
+<img id="lightbox-img">
+
+<span class="next" onclick="changeImage(1)">&#10095;</span>
 
 </div>
-
 
 <script src="script.js"></script>
 
